@@ -44,58 +44,6 @@ const VideoCarousel = () => {
   }, [isEnd, videoId]);
 
   useEffect(() => {
-    if (loadedData.length > 3) {
-      if (!isPlaying) {
-        videoRef.current[videoId].pause();
-      } else {
-        startPlay && videoRef.current[videoId].play();
-      }
-    }
-  }, [videoId, startPlay, isPlaying, loadedData]);
-
-  const handleLoadedMetadata = (i, e) => setLoadedData((pre) => [...pre, e]);
-
-  const handleProcess = (type, i) => {
-    switch (type) {
-      case "video-end":
-        setVideo((pre) => ({
-          ...pre,
-          isEnd: true,
-          videoId: i + 1,
-        }));
-        break;
-      case "video-last":
-        setVideo((pre) => ({
-          ...pre,
-          isLastVideo: true,
-        }));
-        break;
-      case "video-reset":
-        setVideo((pre) => ({
-          ...pre,
-          isLastVideo: false,
-          videoId: 0,
-        }));
-        break;
-      case "play":
-        setVideo((pre) => ({
-          ...pre,
-          isPlaying: !pre.isPlaying,
-        }));
-        break;
-      case "pause":
-        setVideo((pre) => ({
-          ...pre,
-          isPlaying: !pre.isPlaying,
-        }));
-        break;
-
-      default:
-        return video;
-    }
-  };
-
-  useEffect(() => {
     let currentProgress = 0;
     let span = videoSpanRef.current;
 
@@ -152,6 +100,58 @@ const VideoCarousel = () => {
     }
   }, [videoId, startPlay, isPlaying]);
 
+  useEffect(() => {
+    if (loadedData.length > 3) {
+      if (!isPlaying) {
+        videoRef.current[videoId].pause();
+      } else {
+        startPlay && videoRef.current[videoId].play();
+      }
+    }
+  }, [videoId, startPlay, isPlaying, loadedData]);
+
+  const handleProcess = (type, i) => {
+    switch (type) {
+      case "video-end":
+        setVideo((pre) => ({
+          ...pre,
+          isEnd: true,
+          videoId: i + 1,
+        }));
+        break;
+      case "video-last":
+        setVideo((pre) => ({
+          ...pre,
+          isLastVideo: true,
+        }));
+        break;
+      case "video-reset":
+        setVideo((pre) => ({
+          ...pre,
+          isLastVideo: false,
+          videoId: 0,
+        }));
+        break;
+      case "play":
+        setVideo((pre) => ({
+          ...pre,
+          isPlaying: !pre.isPlaying,
+        }));
+        break;
+      case "pause":
+        setVideo((pre) => ({
+          ...pre,
+          isPlaying: !pre.isPlaying,
+        }));
+        break;
+
+      default:
+        return video;
+    }
+  };
+
+  const handleLoadedMetadata = (i, e) => setLoadedData((pre) => [...pre, e]);
+
   return (
     <>
       <div className="flex items-center">
@@ -174,8 +174,8 @@ const VideoCarousel = () => {
                       : handleProcess("video-last")
                   }
                   onPlay={() => {
-                    setVideo((prevVideo) => ({
-                      ...prevVideo,
+                    setVideo((pre) => ({
+                      ...pre,
                       isPlaying: true,
                     }));
                   }}
