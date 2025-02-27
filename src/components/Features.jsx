@@ -1,7 +1,7 @@
 import { useGSAP } from "@gsap/react";
+import React, { useRef } from "react";
 import { animateWithGsap } from "../utils/animations";
 import { explore1Img, explore2Img, exploreVideo } from "../utils";
-import { useRef } from "react";
 import gsap from "gsap";
 
 const Features = () => {
@@ -19,18 +19,19 @@ const Features = () => {
       },
     });
 
+    gsap.to(".g_text", {
+      y: 0,
+      opacity: 1,
+      ease: "power2.inOut",
+      duration: 1,
+    });
+
     animateWithGsap("#features_title", { y: 0, opacity: 1 });
     animateWithGsap(
       ".g_grow",
       { scale: 1, opacity: 1, ease: "power1" },
       { scrub: 5.5 }
     );
-    animateWithGsap(".g_text", {
-      y: 0,
-      opacity: 1,
-      ease: "power2.inOut",
-      duration: 1,
-    });
   }, []);
 
   return (
@@ -91,7 +92,7 @@ const Features = () => {
                       the first iPhone to feature an aerospace-grade titanium
                       design
                     </span>
-                    , using the same alloy that spacecraft use for missions to
+                    , using the same alloy that spacecrafts use for missions to
                     Mars.
                   </p>
                 </div>
@@ -101,7 +102,7 @@ const Features = () => {
                     Titanium has one of the best strength-to-weight ratios of
                     any metal, making these our{" "}
                     <span className="text-white">lightest Pro models ever</span>
-                    . You’ll notice the difference the moment you pick one up.
+                    . You'll notice the difference the moment you pick one up.
                   </p>
                 </div>
               </div>
