@@ -11,6 +11,7 @@ const HowItWorks = () => {
     gsap.from("#chip", {
       scrollTrigger: {
         target: "#chip",
+        toggleActions: "restart reverse restart reverse",
         start: "20% bottom",
       },
       opacity: 0,
