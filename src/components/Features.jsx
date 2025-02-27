@@ -35,7 +35,7 @@ const Features = () => {
 
   return (
     <section className="h-full common-padding bg-zinc relative overflow-hidden">
-      <div className=" screen-max-width">
+      <div className="screen-max-width">
         <div className="mb-12 w-full">
           <h1 id="features_title" className="section-heading">
             Explore the full story.
@@ -73,6 +73,8 @@ const Features = () => {
                     alt="titanium"
                     className="feature-video g_grow"
                   />
+                </div>
+                <div className="overflow-hidden flex-1 h-[50vh]">
                   <img
                     src={explore2Img}
                     alt="titanium 2"
