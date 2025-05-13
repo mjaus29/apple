@@ -16,8 +16,6 @@
 
 Welcome to my Interactive iPhone Pro Website project! This is a visually stunning, interactive clone of Apple's iPhone Pro website using React, GSAP animations, and Three.js for 3D modeling.
 
-I wanted to recreate Apple's premium user experience while learning advanced animation and 3D development techniques.
-
 This project demonstrates how modern web technologies can create compelling product showcases that engage users and drive conversions.
 
 The project features custom animations, a video carousel with progress tracking, an interactive 3D iPhone model with color customization, and performance monitoring with Sentry.
